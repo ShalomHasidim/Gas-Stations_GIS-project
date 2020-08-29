@@ -1,3 +1,7 @@
+.form-group.row{
+    padding: 0px 40px;
+}
+
 .modal-header {
     flex-direction: row-reverse;
 }
@@ -46,4 +50,29 @@ button{
 #searchBtn{
     background-color: #9CCC65;
     border-color: #9CCC65;
+}
+
+
+/*modalAddGS window*/
+
+.flex-group{
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column;
+    flex-wrap: wrap-reverse;
+}
+
+.form-row{
+    flex-direction:row-reverse;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+
+
+/*Icons*/
+.fa-edit{
+    padding-top:7px;
+    margin-right: 11px;
+    color:#546E7A;
 }

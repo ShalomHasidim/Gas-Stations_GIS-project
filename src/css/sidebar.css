@@ -1,3 +1,19 @@
+  /*menu burger button*/
+  .bm-burger-bars.custom{
+    position: absolute;
+    height: 12%; 
+    left: 0px; 
+    right: 0px; 
+    top: 0%; 
+    opacity: 1;
+  }
+  .bm-burger-bars.custom.second{top:30%}
+  .bm-burger-bars.custom.third{top:60%}
+
+  .bm-burger-button{
+    top:41px !important;
+
+  }
 
   .bm-item {
     display: inline-block;

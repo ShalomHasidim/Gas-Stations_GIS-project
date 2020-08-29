@@ -3,13 +3,18 @@ import L from 'leaflet';
 import {Map, TileLayer, Marker, Popup} from 'react-leaflet';
 import PopupMarker from './components/popupMarker';
 import SideBar from "./components/sidebar";
+import SearchBar from './components/serachBar';
 import ModalGS from './components/modalGS'
+import ModalFilterGS from './components/modalFilterGS'
+import ModalAddGS from './components/modalAddGS'
 import { getStations } from './services/GasStations';
 import './App.css';
 import "./css/sidebar.css";
+import './css/customizedRatings.css';
 import 'leaflet/dist/leaflet.css';
 import './css/popup.css';
 import './css/modal.css';
+import './css/searchBar.css';
 import './index.css';
 
 function App() {
@@ -22,11 +27,20 @@ function App() {
   const icons = require.context('./assets', true);
   const position = [mapCenter.lat, mapCenter.lng];
   const [show, setShow] = useState(false);
+  const [showModalFilterGS, setShowModalFilterGS] = useState(false);
+  const [showModalAddGS, setShowModalAddGS] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   
   return(
     <Fragment>
-      <SideBar isOpenMenu = {isOpenMenu} setIsOpenMenu = {setIsOpenMenu} setShow = {setShow}></SideBar>
+      
+      <SideBar isOpenMenu = {isOpenMenu} 
+      setIsOpenMenu = {setIsOpenMenu}
+      setShow = {setShow}
+      setShowModalFilterGS={setShowModalFilterGS} 
+      setShowModalAddGS={setShowModalAddGS}
+      />
+      <SearchBar/>
       <Map className= "map" center={position} zoom={zoom}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -53,6 +67,8 @@ function App() {
         })}
       </Map>
       <ModalGS show = {show} onHide = {setShow}></ModalGS>
+      <ModalFilterGS show = {showModalFilterGS} onHide = {setShowModalFilterGS}></ModalFilterGS>
+      <ModalAddGS show = {showModalAddGS} onHide = {setShowModalAddGS}></ModalAddGS>
     </Fragment>
   );
 }
